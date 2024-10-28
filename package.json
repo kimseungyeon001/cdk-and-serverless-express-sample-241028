@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "1. npm workspace",
   "scripts": {
-    "server": "",
     "bootstrap:dev": "npm run cdk bootstrap -w iac -- --context environment=dev",
     "deploy:dev": "npm run cdk deploy -w iac -- --context environment=dev"
   },

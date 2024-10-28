@@ -1,11 +1,9 @@
 {
   "name": "server",
   "version": "0.1.0",
+  "type": "module",
   "description": "",
-  "scripts": {
-    "start": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "dependencies": {
     "@codegenie/serverless-express": "^4.16.0",
     "cors": "^2.8.5",
