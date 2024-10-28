@@ -46,9 +46,3 @@ Check API
 ```
 curl -X GET -H "Content-Type: application/json" https://xxxxxxxx.execute-api.[region].amazonaws.com/v1/...
 ```
-
-### Start
-
-```
-
-```
