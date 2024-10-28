@@ -1,0 +1,18 @@
+{
+  "name": "cdk-and-serverless-express-sample-241028",
+  "version": "0.1.0",
+  "description": "1. npm workspace",
+  "scripts": {
+    "server": "",
+    "bootstrap:dev": "npm run cdk bootstrap -w iac -- --context environment=dev",
+    "deploy:dev": "npm run cdk deploy -w iac -- --context environment=dev"
+  },
+  "workspaces": [
+    "packages/server",
+    "packages/iac"
+  ],
+  "volta": {
+    "node": "20.18.0",
+    "npm": "10.8.2"
+  }
+}
