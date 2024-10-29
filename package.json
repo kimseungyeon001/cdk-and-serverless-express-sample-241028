@@ -1,8 +1,11 @@
 {
   "name": "cdk-and-serverless-express-sample-241028",
   "version": "0.1.0",
+  "type": "module",
   "description": "1. npm workspace",
   "scripts": {
+    "lint": "eslint 'packages/**/*.{ts,json}'",
+    "format": "prettier --write 'packages/**/*.{ts,json}'",
     "bootstrap:dev": "npm run cdk bootstrap -w iac -- --context environment=dev",
     "deploy:dev": "npm run cdk deploy -w iac -- --context environment=dev"
   },
@@ -13,5 +16,13 @@
   "volta": {
     "node": "20.18.0",
     "npm": "10.8.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.12.1",
+    "@typescript-eslint/parser": "^8.12.1",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3"
   }
 }

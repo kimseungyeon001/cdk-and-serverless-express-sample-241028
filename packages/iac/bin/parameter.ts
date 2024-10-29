@@ -1,18 +1,18 @@
-import { Environment } from "aws-cdk-lib";
+import { Environment } from 'aws-cdk-lib';
 
 export interface AppParameter {
   projectName: string;
-  envName: "dev" | "stg" | "prd";
+  envName: 'dev' | 'stg' | 'prd';
   env: Environment;
 }
 
 const commonParameter = {
-  projectName: "my-project",
+  projectName: 'my-project',
 };
 
 export const devParameter: AppParameter = {
   ...commonParameter,
-  envName: "dev",
+  envName: 'dev',
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
@@ -21,7 +21,7 @@ export const devParameter: AppParameter = {
 
 export const stgParameter: AppParameter = {
   ...commonParameter,
-  envName: "stg",
+  envName: 'stg',
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
@@ -30,7 +30,7 @@ export const stgParameter: AppParameter = {
 
 export const prdParameter: AppParameter = {
   ...commonParameter,
-  envName: "prd",
+  envName: 'prd',
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
@@ -38,16 +38,16 @@ export const prdParameter: AppParameter = {
 };
 
 export const getParameter = (
-  envName: AppParameter["envName"]
+  envName: AppParameter['envName'],
 ): AppParameter => {
   switch (envName) {
-    case "dev":
+    case 'dev':
       return devParameter;
-    case "stg":
+    case 'stg':
       return stgParameter;
-    case "prd":
+    case 'prd':
       return prdParameter;
     default:
-      throw new Error("Invalid envName");
+      throw new Error('Invalid envName');
   }
 };

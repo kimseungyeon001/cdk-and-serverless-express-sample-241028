@@ -1,5 +1,5 @@
-import * as cdk from "aws-cdk-lib";
-import { Construct } from "constructs";
+import * as cdk from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 
 // Main stack
 export class IacStack extends cdk.Stack {
@@ -9,16 +9,16 @@ export class IacStack extends cdk.Stack {
     // Lambda
     const restApiFunc = new cdk.aws_lambda_nodejs.NodejsFunction(
       this,
-      "RestApiFunc",
+      'RestApiFunc',
       {
         architecture: cdk.aws_lambda.Architecture.ARM_64,
         runtime: cdk.aws_lambda.Runtime.NODEJS_20_X,
-        entry: "../server/src/lambda/api-gateway/rest-api/router.ts",
-      }
+        entry: '../server/src/lambda/api-gateway/rest-api/router.ts',
+      },
     );
 
     // REST API
-    const restApi = new cdk.aws_apigateway.LambdaRestApi(this, "RestApi", {
+    const restApi = new cdk.aws_apigateway.LambdaRestApi(this, 'RestApi', {
       handler: restApiFunc,
       defaultCorsPreflightOptions: {
         allowOrigins: cdk.aws_apigateway.Cors.ALL_ORIGINS,
@@ -27,13 +27,13 @@ export class IacStack extends cdk.Stack {
         maxAge: cdk.Duration.minutes(5),
       },
       deployOptions: {
-        stageName: "v1",
+        stageName: 'v1',
         tracingEnabled: false,
       },
     });
 
     // API Gateway
-    new cdk.CfnOutput(this, "RestApiEndpoint", {
+    new cdk.CfnOutput(this, 'RestApiEndpoint', {
       value: restApi.deploymentStage.urlForPath(),
     });
   }
