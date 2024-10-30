@@ -28,7 +28,7 @@ export class IacStack extends cdk.Stack {
       },
       deployOptions: {
         stageName: 'v1',
-        tracingEnabled: false,
+        tracingEnabled: true,
       },
     });
 
