@@ -32,7 +32,7 @@ export class IacStack extends cdk.Stack {
       },
     });
 
-    // API Gateway
+    // Endpoint
     new cdk.CfnOutput(this, 'RestApiEndpoint', {
       value: restApi.deploymentStage.urlForPath(),
     });
